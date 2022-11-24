@@ -5,7 +5,7 @@ import { Login } from './components/Login/Login';
 import './styles/reset.css';
 import './styles/index.css';
 
-const socket = io('http://localhost:8080', { transports: ["websocket"] });
+const socket = io('https://kir8mir-chat-server.herokuapp.com', { transports: ["websocket"] });
 
 function App() {
   const [userName, setUserName] = useState('');
