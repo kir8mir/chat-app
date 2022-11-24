@@ -1,0 +1,13 @@
+* {
+  font-family: Monospace !important;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(27,121,204,1) 0%, rgba(7,96,134,1) 54%, rgba(12,71,83,1) 100%); 
+}

@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { MessageList } from '../MessageList/MessageList';
 import {v4 as uuid} from 'uuid';
+import './Chat.css';
 
 interface Props {
   socket: any;
@@ -10,7 +11,7 @@ interface Props {
 
 export const Chat: FC<Props> = ({ socket, userName, room }) => {
   const [currentMessage, setCurrentMessage] = useState('');
-  const [messageList, setMessageList] = useState<string[]>(['Hey', 'Bobobo']);
+  const [messageList, setMessageList] = useState<object[]>([]);
 
   const sendMessage = async () => {
     if (currentMessage) {
@@ -24,30 +25,30 @@ export const Chat: FC<Props> = ({ socket, userName, room }) => {
       };
 
       await socket.emit('send_message', messageData);
-      setMessageList(value => [...value, messageData.message + `id: ${uuid()}`]);
+      setMessageList(value => [...value, messageData]);
     }
-  };
+  }
 
   useEffect(() => {
     socket.on('res_message', (data: any) => {
-      setMessageList(value => [...value, data.message]);
+      setMessageList(value => [...value, data]);
     });
   }, [socket])
   
-  console.log('MessageList', messageList);
   
   return (
-    <div>
-      <div className="chat-header">
-        <h3>The Chat</h3>
+    <div className="chat">
+      <div className="chat__header">
+        <h3>{`Welcome, ${userName} in the ${room} room`}</h3>
       </div>
 
-      <div className="chat-body">
-       <MessageList messageList={messageList} />
+      <div className="chat__body">
+       <MessageList messageList={messageList} userName={userName}/>
       </div>
 
-      <div className="chat-footer">
+      <div className="chat__footer">
         <input
+        className="chat__footer-input"
           type="text"
           placeholder='Do you like to chat with me?'
           onChange={(event) => {
@@ -55,7 +56,7 @@ export const Chat: FC<Props> = ({ socket, userName, room }) => {
           }}
         />
 
-        <button onClick={sendMessage}>Send</button>
+        <button className="chat__footer-btn" onClick={sendMessage}>Send</button>
       </div>
     </div>
   );

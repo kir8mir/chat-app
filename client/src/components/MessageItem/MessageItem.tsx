@@ -1,9 +1,11 @@
 import { FC, useState, useEffect } from 'react';
+import './MessageItem.css';
 
 interface Props {
-  message: string;
+  message: any;
+  userName: string;
 }
 
-export const MessageItem:FC<Props> = ({ message }) => {
-  return <h3>{`Mass: ${message}`}</h3>
+export const MessageItem:FC<Props> = ({ message, userName }) => {
+  return <h3>{`${message.userName}: ${message.message}: ${message.time}`}</h3>
 }

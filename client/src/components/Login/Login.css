@@ -1,0 +1,73 @@
+.login {
+  max-height: 40vh;
+  width: 50%;
+  background: #434F80;
+  
+  padding: 15%;
+  border-radius: 20px;
+  margin: auto;
+
+  animation-name: flow;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px 0;
+}
+
+@keyframes flow {
+  0% {
+    background: #434F80;
+  }
+
+  50% {
+    background: #1D2136;
+  }
+
+  100% {
+    color: #434F80;
+
+  }
+
+}
+
+.login__title {
+  font-size: 80px;
+  color: rgb(26, 196, 82);
+
+  text-shadow: 1px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+               1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.login__input {
+  border: 1px dassed #1D2136;
+  background-color: #4D5A92;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 30px;
+  color: #B7BDD3;
+}
+
+.login_btn {
+  cursor: pointer;
+  width: 50%;
+  margin: 0 auto;
+
+  transition: background-color 0.5s;
+}
+
+.login__red-btn:hover {
+  background-color: #9A012F;
+}
+
+.login__green-btn:hover {
+  background-color: #478F76;
+}
+
+input:focus-visible {
+  border: 2px solid white;
+  outline: none;
+  background-color:#1D2136;
+}

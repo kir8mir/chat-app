@@ -1,0 +1,20 @@
+.message {
+  display: flex;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  height: max-content;
+  font-size: 20px;
+}
+
+#you.message {
+  background-color: darkgreen;
+  width: max-content;
+
+}
+
+#other.message {
+  background-color: navy;
+  width: max-content;
+  margin-left: auto;
+}

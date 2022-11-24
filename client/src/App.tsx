@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { io } from 'socket.io-client';
 import { Chat } from './components/Chat/Chat';
+import { Login } from './components/Login/Login';
+import './styles/reset.css';
+import './styles/index.css';
 
 const socket = io('http://localhost:8080', { transports: ["websocket"] });
 
@@ -19,24 +22,7 @@ function App() {
   return (
     <div className="App">
       {!showChat
-        ? <div className="logIn">
-          <h3>Join A Chat</h3>
-          <input
-            type="text"
-            placeholder='John Doe'
-            onChange={(event) => {
-              setUserName(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder='Room ID'
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          />
-          <button onClick={joinRoom}>Join a Room</button>
-        </div>
+        ? <Login setUserName={setUserName} setRoom={setRoom} joinRoom={joinRoom} room={room} userName={userName} />
 
         : <Chat socket={socket} room={room} userName={userName} />}
     </div>
