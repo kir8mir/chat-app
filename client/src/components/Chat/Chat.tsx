@@ -52,7 +52,7 @@ export const Chat: FC<Props> = ({ socket, userName, room }) => {
   return (
     <div className="chat">
       <div className="chat__header">
-        <h3>{`Welcome, ${userName} in the ${room} room`}</h3>
+        <h3 className="chat__header-title">Menu</h3>
       </div>
 
       <div className="chat__body">

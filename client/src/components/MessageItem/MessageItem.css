@@ -1,3 +1,33 @@
-.message-item {
-  width: 100%;
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.message-name {
+  background-color: #1b79cc;;
+  border-radius: 5px;
+  padding: 3px 8px;
+  width: 93%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; 
+   -webkit-box-orient: vertical;
+
+   opacity: 70%;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.message-content {
+  max-width: 100%;
+  word-wrap: break-word;
 }
