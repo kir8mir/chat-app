@@ -21,7 +21,7 @@ export const MessageItem: FC<Props> = ({ message, userName }) => {
       <h3
         className='message-content'
       >
-        {'' + message.message}
+        {message.message}
       </h3>
     </div>
   )
