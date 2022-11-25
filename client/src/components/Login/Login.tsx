@@ -38,7 +38,9 @@ export const Login: FC<Props> = ({ joinRoom, setUserName, setRoom, userName, roo
           {'login__red-btn': !userName || !room},
           {'login__green-btn': userName && room},
           )}
-        onClick={joinRoom}
+        onClick={() => {
+          joinRoom();
+        }}
       >
         Join a Room</button>
     </div>

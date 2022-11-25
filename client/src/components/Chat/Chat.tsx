@@ -1,6 +1,7 @@
+import classNames from 'classnames';
 import { FC, useState, useEffect } from 'react';
+import { Menu } from '../Menu/Menu';
 import { MessageList } from '../MessageList/MessageList';
-import GridLayout from "react-grid-layout";
 
 import './Chat.css';
 
@@ -13,12 +14,7 @@ interface Props {
 export const Chat: FC<Props> = ({ socket, userName, room }) => {
   const [currentMessage, setCurrentMessage] = useState('');
   const [messageList, setMessageList] = useState<object[]>([]);
-  
-  const layout = [
-    { i: "a", x: 0, y: 0, w: 1, h: 2, static: true },
-    { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
-    { i: "c", x: 4, y: 0, w: 1, h: 2 }
-  ];
+  const [togglMenu, setTogglMenu] = useState(false);
 
   const sendMessage = async () => {
     if (currentMessage) {
@@ -48,12 +44,22 @@ export const Chat: FC<Props> = ({ socket, userName, room }) => {
     });
   }, [socket])
 
-
   return (
-    <div className="chat">
-      <div className="chat__header">
-        <h3 className="chat__header-title">Menu</h3>
+    <div
+      className={classNames('chat', {'chat-rainbow': togglMenu})}
+    >
+      <div
+        className="chat__header"
+        onClick={() => setTogglMenu(value => !value)}
+      >
+        <h3 className="chat__header-title">The Chat</h3>
       </div>
+
+      
+      {/* I want to try implement some menu logic, so I need this comment
+      
+      {togglMenu &&
+      <Menu messageList={messageList} />} */}
 
       <div className="chat__body">
         <MessageList messageList={messageList} userName={userName} />
@@ -65,7 +71,7 @@ export const Chat: FC<Props> = ({ socket, userName, room }) => {
           type="text"
           placeholder='Do you like to chat with me?'
           value={currentMessage}
-          onKeyPress ={handleKeyDown}
+          onKeyPress={handleKeyDown}
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }

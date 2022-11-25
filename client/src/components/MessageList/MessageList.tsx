@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const MessageList: FC<Props> = ({ messageList, userName }) => {
+
   return (
     messageList.map((message: any) => {
 
