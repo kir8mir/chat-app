@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const MessageItem:FC<Props> = ({ message, userName }) => {
-  return <h3>{`${message.userName}: ${message.message}: ${message.time}`}</h3>
+  return <h3 className='message-item'>{`${message.userName}: ${message.message}: ${message.time}`}</h3>
 }

@@ -3,6 +3,11 @@
   width: 50%;
   height: 70%;
   border-radius: 20px;
+  min-width: 25%;
+
+    resize: both;
+overflow: auto;
+overflow-y: hidden;
 }
 
 @keyframes flow {
@@ -30,26 +35,32 @@ border-top-right-radius: 20px;
 border-bottom-right-radius: 0;
 border-bottom-left-radius: 0;
 padding: 10px 0;
+min-height: 35px;
 }
 
 .chat__body {
   display: flex;
   flex-direction: column;
   background-color: #1b79cc;
-  height: 80%;
+  height: calc(100% - 160px);
   padding: 20px 50px;
+  overflow-y: scroll;
+  gap: 10px;
 }
 
 .chat__footer {
+  display: flex;
+flex-wrap: nowrap;
   background: #0c6696;
   height: 7%;
+  min-height: 65px;
 
 border-bottom-right-radius: 20px;
 border-bottom-left-radius: 20px;
 }
 
 .chat__footer-input {
-  width: 90%;
+  flex: 1 90%;
   height: 100%;
   background: #0c6696;
 border-bottom-left-radius: 20px;
@@ -66,12 +77,12 @@ color: white;
 }
 
 .chat__footer-btn {
+  flex: 2 10%;
   outline: none;
   border: none;
   background-color: #086189;
   cursor: pointer;
   height: calc(100% + 2px);
-  width: 6.7%;
   border-left: 1px dashed white;
   border-bottom-right-radius: 20px;
   color: white;
