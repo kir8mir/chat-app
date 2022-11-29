@@ -10,6 +10,7 @@
     CSS, 
     HTML
 }
+
 #Expirience
 - If you want to join some Room you should know the Room ID, or you can visit any Room and just tell the Room Id to your mates. 
 - If you need just test the chat, you can use different tabs in your browser.
